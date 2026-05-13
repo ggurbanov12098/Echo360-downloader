@@ -1,0 +1,4 @@
+# Paste your three Echo360 URLs below. The script will automatically assign them 
+# to the correct stream based on whether they contain s0q1, s1q1, or s2q1.
+
+
