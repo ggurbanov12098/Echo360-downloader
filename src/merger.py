@@ -53,11 +53,11 @@ def merge(video_file: Path, voiceover_file: Path, output_file: Path) -> int:
     return proc.returncode
 
 
-def main() -> int:
-    if len(sys.argv) > 1:
-        base_dir = Path(sys.argv[1]).resolve()
+def main(target_dir: Path = None) -> int:
+    if target_dir:
+        base_dir = target_dir
     else:
-        base_dir = Path(__file__).resolve().parent
+        base_dir = Path.cwd()
         
     video_file = base_dir / "video_lecture.mp4"
     voiceover_file = base_dir / "voiceOver.mp4"

@@ -326,10 +326,14 @@ def print_results(results: Dict[str, Tuple[bool, str]]) -> None:
         print(f"[{status}] {message}")
 
 
-def main() -> int:
+def main(target_dir: Path = None) -> int:
     print("--- Echo360 Multi-Stream Downloader ---")
 
-    script_dir = Path(__file__).resolve().parent
+    if target_dir:
+        script_dir = target_dir
+    else:
+        script_dir = Path.cwd()
+        
     urls_file = script_dir / "urls.txt"
     urls = get_stream_urls(urls_file)
     print("Starting parallel download...")
